@@ -1,0 +1,36 @@
+{% macro input(name, nameinput, value='', type='text') -%}
+<input type="{{ type }}" value="{{ value|e }}" name="{{ nameinput }}" placeholder="{{ name }}">
+{%- endmacro %}
+
+{% macro label(name) -%}
+<label for="{{ name }}"> {{ name }} </label>
+{%- endmacro %}
+
+{% macro select(name, value) -%}
+<div class="form-group">
+        <label style="margin-bottom: 10px;" for="exampleFormControlSelect1">{{ name }}</label>
+        <select name='t_pessoa' class="form-control" id="exampleFormControlSelect1">
+                <option name='empty' disabled selected>Selecione</option>
+                {% for i in value %}
+                <option value="{{ i.name }}" name="{{ i.name }}">{{ i.tipo }}</option>
+                {% endfor %}
+        </select>
+</div>
+{%- endmacro %}
+
+{% macro checkbox(name, value, times) -%}
+<div class="custom-control">
+        <label for="{{ name }}"> {{ name }} </label><br>
+        {% for i in value %}
+        <label style="margin-right: 20px; margin-top: 5px; font-size: 12px">
+                <input type="radio" value="{{ i.id }}" name='ativo' class="filled-in" />
+                <span style='padding-left: 25px; color: #cecece'>{{ i.name }}</span>
+        </label>
+        {% endfor %}
+</div>
+{%- endmacro %}
+
+{%- macro textarea(name, value='', rows=10, cols=40) -%}
+<textarea name="{{ name }}" rows="{{ rows }}" cols="{{ cols
+        }}">{{ value|e }}</textarea>
+{%- endmacro %}

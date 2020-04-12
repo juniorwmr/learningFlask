@@ -1,0 +1,48 @@
+{% extends "index.html.jinja" %}
+{% import 'form.html.jinja' as form %}
+{% block title %}Cadastro de Perito{% endblock %}
+{% block head %}
+{{ super() }}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+{% endblock %}
+
+{% block content %}
+<h4 style='text-align: center; margin-bottom: 30px; border-bottom: 1px solid black'> Cadastro de Perito </h4>
+<form class="col s12" method='POST'>
+    <div class="row">
+        <div class="input-field col s6">
+            {{ form.input('Nome Completo', 'nome') }}
+            {{ form.label('Nome')}}
+        </div>
+        <div class="input-field col s6">
+            {{ form.input('E-mail', 'email') }}
+            {{ form.label('E-mail')}}
+        </div>
+        <div class="input-field col s6">
+            {{ form.input('Telefone', 'telefone') }}
+            {{ form.label('Telefone')}}
+        </div>
+        <div class="input-field col s6">
+            {{ form.checkbox('Atividade', status) }}
+        </div>
+        <div class="input-field col s6">
+            {{ form.input('Logradouro', 'logradouro') }}
+            {{ form.label('Logradouro')}}
+        </div>
+        <div class="input-field col s6">
+            {{ form.input('Bairro', 'bairro') }}
+            {{ form.label('Bairro')}}
+        </div>
+        <div class="input-field col s6">
+            {{ form.input('Número', 'numero') }}
+            {{ form.label('Número')}}
+        </div>
+        <div style='margin: 0 auto;' class="input-field col s12">
+            {{ form.select('Tipo de Pessoa', t_pessoa) }}
+            {{ form.input('Digite o número', 'tipo_pessoa') }}
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Salvar</button>
+</form>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+{% endblock %}

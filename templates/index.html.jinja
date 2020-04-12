@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% block head %}
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
+    <title>{% block title %} CPTEC {% endblock %}</title>
+    {% endblock %}
+</head>
+
+<body>
+    <div id='root'>
+        {% block navbar %}
+        <div class="navbar navbar-inverse navbar-fixed-left">
+            <a class="navbar-brand" href="#">Menu</a>
+            <ul class="nav navbar-nav">
+                <li><a href="/">Home</a></li>
+                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Cadastrar<span
+                            class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="/cadastrar/perito">Perito</a></li>
+                        <li><a href="#">Perícia</a></li>
+                        <li><a href="#">Magistrado</a></li>
+                        <li><a href="#">Comarca</a></li>
+                        <li><a href="#">Documento</a></li>
+                        <li><a href="#">Tipo de Documeto</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">Pesquisar<span
+                            class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="#">Perito</a></li>
+                        <li><a href="#">Perícia</a></li>
+                        <li><a href="#">Magistrado</a></li>
+                        <li><a href="#">Comarca</a></li>
+                        <li><a href="#">Documento</a></li>
+                        <li><a href="#">Tipo de Documeto</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        {% endblock %}
+
+        <div class="container">
+            <div class="row">
+                {% block content %}{% endblock %}
+            </div>
+        </div>
+
+    </div>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+</body>
+
+</html>
